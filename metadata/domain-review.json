@@ -1,0 +1,73 @@
+{
+  "repo": "radian-net-proxy-pipe",
+  "language": "TypeScript",
+  "category": "Networking",
+  "goal": "Design a TypeScript verification harness for proxy systems, covering protocol validation, framed sample traffic, and failure-oriented tests.",
+  "review_model": {
+    "terms": [
+      "packet span",
+      "retry pressure",
+      "route drift",
+      "socket risk"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "packet span",
+      "signal": 80,
+      "slack": 33,
+      "drag": 14,
+      "confidence": 56,
+      "score": 207,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "retry pressure",
+      "signal": 58,
+      "slack": 40,
+      "drag": 30,
+      "confidence": 60,
+      "score": 126,
+      "lane": "watch"
+    },
+    {
+      "name": "edge",
+      "focus": "route drift",
+      "signal": 58,
+      "slack": 51,
+      "drag": 11,
+      "confidence": 48,
+      "score": 182,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "socket risk",
+      "signal": 50,
+      "slack": 37,
+      "drag": 25,
+      "confidence": 83,
+      "score": 145,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "packet span",
+      "signal": 77,
+      "slack": 40,
+      "drag": 10,
+      "confidence": 79,
+      "score": 243,
+      "lane": "ship"
+    }
+  ]
+}
